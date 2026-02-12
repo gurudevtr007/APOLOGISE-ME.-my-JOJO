@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>I'm Sorry Jojesha ❤️</title>
+
+<style>
+body{
+  margin:0;
+  font-family:'Segoe UI',sans-serif;
+  background:linear-gradient(135deg,#d9a7c7,#fffcdc);
+  text-align:center;
+  color:#444;
+  overflow:hidden;
+}
+
+.container{
+  padding:60px 20px;
+}
+
+h1{
+  font-size:32px;
+}
+
+p{
+  font-size:18px;
+  max-width:600px;
+  margin:auto;
+  line-height:1.6;
+}
+
+button{
+  padding:12px 25px;
+  margin-top:20px;
+  border:none;
+  border-radius:25px;
+  font-size:16px;
+  cursor:pointer;
+  background:#ff6b81;
+  color:white;
+  transition:0.3s;
+}
+
+button:hover{
+  transform:scale(1.05);
+}
+
+img{
+  width:220px;
+  border-radius:20px;
+  margin-top:20px;
+}
+
+.hidden{
+  display:none;
+}
+
+.heart{
+  position:fixed;
+  animation:float 6s linear infinite;
+}
+
+@keyframes float{
+0%{transform:translateY(100vh);opacity:1;}
+100%{transform:translateY(-10vh);opacity:0;}
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+<h1>Jojesha… I’m Really Sorry ❤️</h1>
+
+<p id="typing"></p>
+
+<img src="yourphoto.jpg">
+
+<br>
+
+<button onclick="forgive()">Will You Forgive Me? 💖</button>
+
+<p id="final" class="hidden">Thank you for being my heart. I promise to do better every single day. 🫶</p>
+</div>
+
+<audio autoplay loop>
+<source src="music.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+const message = "I know I hurt you. That was never my intention. You mean everything to me. I value you more than my ego, more than my pride. I am truly sorry. Please let me fix this. ❤️";
+
+let i=0;
+function typeEffect(){
+  if(i<message.length){
+    document.getElementById("typing").innerHTML += message.charAt(i);
+    i++;
+    setTimeout(typeEffect,40);
+  }
+}
+typeEffect();
+
+function forgive(){
+  document.getElementById("final").style.display="block";
+  startHearts();
+}
+
+function createHeart(){
+  const heart=document.createElement("div");
+  heart.classList.add("heart");
+  heart.innerHTML="💗";
+  heart.style.left=Math.random()*100+"vw";
+  heart.style.fontSize=Math.random()*20+15+"px";
+  document.body.appendChild(heart);
+  setTimeout(()=>heart.remove(),6000);
+}
+
+function startHearts(){
+  setInterval(createHeart,300);
+}
+</script>
+
+</body>
+</html>
