@@ -3,38 +3,78 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>I'm Sorry Jojesha ❤️</title>
+<title>For Jojesha ❤️</title>
 
 <style>
 body{
   margin:0;
   font-family:'Segoe UI',sans-serif;
-  background:linear-gradient(135deg,#d9a7c7,#fffcdc);
+  overflow-x:hidden;
   text-align:center;
-  color:#444;
-  overflow:hidden;
+  color:white;
+  background:black;
 }
 
-.container{
-  padding:60px 20px;
+/* 3D Canvas background */
+#bg{
+  position:fixed;
+  top:0;
+  left:0;
+  z-index:-1;
 }
 
-h1{
-  font-size:32px;
+/* Sections */
+.section{
+  padding:100px 20px;
+  min-height:100vh;
+  opacity:0;
+  transform:translateY(40px);
+  transition:1s ease;
 }
 
-p{
-  font-size:18px;
-  max-width:600px;
-  margin:auto;
-  line-height:1.6;
+.section.show{
+  opacity:1;
+  transform:translateY(0);
 }
 
+/* Glow Name */
+.glow{
+  font-size:65px;
+  font-weight:bold;
+  color:#ff6b81;
+  text-shadow:0 0 20px #ff99ac,0 0 40px #ff4b6e;
+  margin-bottom:20px;
+}
+
+/* Chat */
+.chat{
+  background:rgba(255,255,255,0.1);
+  display:inline-block;
+  padding:15px 20px;
+  border-radius:20px;
+  margin:10px;
+  backdrop-filter:blur(10px);
+}
+
+/* Image */
+img{
+  width:260px;
+  border-radius:30px;
+  margin-top:25px;
+  box-shadow:0 15px 35px rgba(0,0,0,0.5);
+  transition:0.4s;
+}
+
+img:hover{
+  transform:scale(1.05);
+}
+
+/* Buttons */
 button{
-  padding:12px 25px;
-  margin-top:20px;
+  padding:14px 30px;
+  margin:10px;
   border:none;
-  border-radius:25px;
+  border-radius:40px;
   font-size:16px;
   cursor:pointer;
   background:#ff6b81;
@@ -43,83 +83,30 @@ button{
 }
 
 button:hover{
-  transform:scale(1.05);
+  transform:scale(1.1);
+  background:#ff4b6e;
 }
 
-img{
-  width:220px;
-  border-radius:20px;
-  margin-top:20px;
+#noBtn{
+  position:relative;
 }
 
-.hidden{
-  display:none;
-}
-
-.heart{
-  position:fixed;
-  animation:float 6s linear infinite;
-}
-
-@keyframes float{
-0%{transform:translateY(100vh);opacity:1;}
-100%{transform:translateY(-10vh);opacity:0;}
-}
 </style>
 </head>
 
 <body>
 
-<div class="container">
-<h1>Jojesha… I’m Really Sorry ❤️</h1>
-
-<p id="typing"></p>
-
-<img src="yourphoto.jpg">
-
-<br>
-
-<button onclick="forgive()">Will You Forgive Me? 💖</button>
-
-<p id="final" class="hidden">Thank you for being my heart. I promise to do better every single day. 🫶</p>
-</div>
+<canvas id="bg"></canvas>
 
 <audio autoplay loop>
 <source src="music.mp3" type="audio/mpeg">
 </audio>
 
-<script>
-const message = "I know I hurt you. That was never my intention. You mean everything to me. I value you more than my ego, more than my pride. I am truly sorry. Please let me fix this. ❤️";
+<div class="section show">
+  <div class="glow">Jojesha…</div>
+  <h2 id="typing"></h2>
+</div>
 
-let i=0;
-function typeEffect(){
-  if(i<message.length){
-    document.getElementById("typing").innerHTML += message.charAt(i);
-    i++;
-    setTimeout(typeEffect,40);
-  }
-}
-typeEffect();
-
-function forgive(){
-  document.getElementById("final").style.display="block";
-  startHearts();
-}
-
-function createHeart(){
-  const heart=document.createElement("div");
-  heart.classList.add("heart");
-  heart.innerHTML="💗";
-  heart.style.left=Math.random()*100+"vw";
-  heart.style.fontSize=Math.random()*20+15+"px";
-  document.body.appendChild(heart);
-  setTimeout(()=>heart.remove(),6000);
-}
-
-function startHearts(){
-  setInterval(createHeart,300);
-}
-</script>
-
-</body>
-</html>
+<div class="section">
+  <h2>What I Should Have Said…</h2>
+  <d
